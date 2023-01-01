@@ -13,6 +13,22 @@
   <div class="container">
    <div id="main" class="card card-body">
     <h2 class="title">Add Items</h2>
+    <script type = "text/javascript">
+        let myObj = {
+            name = "vijay";
+            age : 25;
+        };
+        let myObj_serilized = Json.simplfy(myObj);
+        console.log(myobj_serlized);
+        
+        let myobj_serlized = Json.Parse(localstorage.setItem("myobj",myObj_serilized);
+                                        
+        let myObj_deserilized = Json.simplfy(myObj);
+        console.log(myobj_deserlized);
+        
+        let myobj_serlized = Json.Parse(localstorage.getItem("myobj",myObj_deserilized);
+       </script>
+        
     <form id="addForm" class="form-inline mb-3">
       <input type="text" class="form-control mr-2" id="item">
       <input type="submit" class="btn btn-dark" value="Submit">
