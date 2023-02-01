@@ -8,44 +8,55 @@
   <title> User Details  </title>
 </head>
 <body>
-   <form onsubmit=saveToLocalStorage(event)>
+   <form onsubmit="saveToLocalStorage(event)">
    <label> Name </label>
-   <input type="text" name = "username" required/>
+   <input type="text" name = "usernm" required/>
    <label> EMAIL </label>
    <input type="email" name = "mailId" required/>
    <Label> Phone Number </label>
    <input type="number" name = "phonenumber"/>
    <button >Submit </button>
+   <ui id = "listofitems"></ui>
    <script>
 	function saveToLocalStorage(event)
 	{
 	event.preventDefault();
-	const name = event.target.username.value();
+	const name = event.target.usernm.value();
 	const email = event.target.mailId.value();
 	const phonenumber = event.target.phonenumber.value();
-	const obj {
-	name;
-	email;
-	phonenumber;
+    // localStorage.setItem('name',name);
+    //  localStorage.setItem('email,email);
+     // localStorage.setItem('phonenumber',phonenumber)
+	const obj = {
+	name,
+	email,
+	phonenumber
              }
-    localStorage.setItems(obj.email, JSON.stringify(obj))
-	showUserOnScreen(obj);
-	
+  localStorage.setItem(obj.email, JSON.stringify(obj))
+	showUserOnScreen(obj);	
 	
 	}
 	
 	function showUserOnScreen(obj)
 	{
-	const parentElem = document.getElementsByID("listofitems")
+	const parentElem = document.getElementById("listofitems")
 	const childElem = document.createElement("li")
-	childElem.textContent = obj.name+"-"+obj.email+"-"+obj.phonenumber
-	parentElement.appendChild(childElem)
+	childElem.textContent = obj.name +"-"+ obj.email +"-"+ obj.phonenumber
+     
+      const deleteButton = document.createElement('input')
+      deleteButton.type = "button"
+      deleteButton.value = "Delete"
+      deleteButton.onclick = () =>
+      {
+       localStorage.RemoveItem(obj.email)
+       parentElem.removeChild(ChildElem)
+       }
+      childElem.appendchild(deletebutton)
+	    parentElem.appendChild(childElem)
 	}
-	//store user deatails in local storage
+	//store user details in local storage
 	
 	</script>
-   </div>
-  </div>
-
+ 
 </body>
 </html>
